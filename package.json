@@ -1,26 +1,34 @@
 {
-  "name": "sit725-2023-t3-prac4",
-  "version": "1.0.0",
-  "description": "sit725 week 4 prac",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "keywords": [
-    "Nodejs",
-    "Express",
-    "Materialize",
-    "HTML",
-    "JS",
-    "CSS"
-  ],
-  "author": "Daniel Blair",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/djb993/sit725-2023-t3-prac4/issues"
-  },
-  "homepage": "https://github.com/djb993/sit725-2023-t3-prac4#readme",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
+    "name": "sit725-2023-t3-prac4",
+    "version": "1.0.0",
+    "description": "sit725 week 4 prac",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node startServerWithMongo.js"
+    },
+    "keywords": [
+        "Nodejs",
+        "Express",
+        "Materialize",
+        "HTML",
+        "JS",
+        "CSS"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/djb993/sit725-2023-t3-prac4.git"
+    },
+    "author": "Daniel Blair",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/djb993/sit725-2023-t3-prac4/issues"
+    },
+    "homepage": "https://github.com/djb993/sit725-2023-t3-prac4#readme",
+    "dependencies": {
+        "express": "^4.18.2",
+        "expresss": "^0.0.0",
+        "mongodb": "^4.17.1",
+        "nodemon": "^3.0.1"
+    }
 }
