@@ -1,16 +1,20 @@
 <html>
 	<head>
-		<title>SIT725 Prac 4</title>
+		<title>SIT725 Prac 5</title>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
 		<link rel="stylesheet" href="styles.css">
+		
 	</head>
 	<body>
 		<nav>
 			<div class="nav-wrapper navbar-size">
-				<a href="#" class="brand-logo"><img class="user-image-size" src="images/user-image.png"></a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a target="_blank" href="https://github.com/djb993">GitHub</a></li>
+				<a href="#" class="brand-logo"><img class="user-image-size" src="images/zoo.png"></a>
+				<ul id="nav-mobile" class="hide-on-med-and-down">
+					<li><a href="#" class="navBar">Home</a></li>
+					<li><a target="_blank" href="https://www.google.com/" class="navBar">Google</a></li>
+					<li><a target="_blank" href="https://taronga.org.au/sydney-zoo" class="navBar">Taronga</a></li>
+					<li><a target="_blank" href="https://github.com/djb993" class="navBar">GitHub</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -19,14 +23,18 @@
 			<div class="container">
 				<div class="row">
 					<div class="col s12 center-align">
-						<h1 id="heading">Welcome to SIT 725 Week 4</h1>
-						<p class="flow-text">Add the content that you want to display using the 'Click Me' Button</p>
-					</div>
-					<div class="col s12" style="margin-left: 30%;">
-						<img class="materialboxed materialboxed-image" src="images/zoo.png">
-					</div>
-					<div class="col s12 center-align">
-						<a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1" style="margin-top: 20px;"><i class="material-icons left">auto_fix_high</i>Click Me</a>
+						<h1 id="heading">Welcome to Deakin Zoo</h1>
+						<p class="flow-text">Click the Button below to Add Animals to the Zoo.</p>
+						
+						<div class="col s12 center-align">
+							<a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1"><i class="material-icons left">auto_fix_high</i>Add Animal</a>
+						</div>
+
+						<!-- Adding in new dynamic table -->
+						<div class="col s12 center-align">
+							<div id="table"></div>
+						</div>
+
 					</div>
 				</div>
 				<div class="row" id="card-section">
@@ -37,6 +45,10 @@
 				<div class="row modal-content">
 					<form class="col s12">
 						<div class="row">
+							<h1 class="heading">Deakin Zoo</h1>
+							<div class="col s12">
+								<img class="materialboxed materialboxed-image" src="images/zoo.png">
+							</div>
 							<div class="input-field col s6">
 								<input id="title" type="text" class="validate">
 								<label for="title">title</label>
@@ -70,6 +82,6 @@
 
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<script src="js/scriptMongo.js"></script>
+		<script src="script.js"></script>
 	</body>
 </html>

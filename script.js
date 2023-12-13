@@ -1,3 +1,43 @@
+let hasReloaded = false;
+const validAnimals = [ "elephant" , "giraffe" , "lion" , "monkey" , "kangaroo" , "dog" ];
+
+function countValidAnimals(arr) {
+    const animalCount = {};
+
+    arr.forEach(animal => {
+        const lowerCaseAnimal = animal.toLowerCase(); //lowercase to match the static validAnimals array.
+
+        if (validAnimals.includes(lowerCaseAnimal)) {
+            // Use lowerCaseAnimal string to index the array - use || 0 as default if null etc. and increment count
+            animalCount[lowerCaseAnimal] = (animalCount[lowerCaseAnimal] || 0) + 1;
+        }
+    });
+    populateTable(animalCount);
+}
+
+const populateTable = (animalCount) => {
+    // Object.keys(animalCount) returns an array of strings representing name-key pairs. Then I'm filtering out those equal to 0.
+    const validAnimals = Object.keys(animalCount).filter(animal => animalCount[animal] > 0);
+    
+    if(validAnimals.length > 0) //Only execute if array is not empty - Condition is required for edge case when I delete every card - I don't want the table heading to show
+    {
+        // Create table
+        let tableHTML = '<table style="margin-bottom: 100px;">' +
+                        '<thead><tr><th>Animal</th><th>Number</th></tr></thead>' +
+                        '<tbody>';
+        // Populate table with both name and number
+        validAnimals.forEach(animal => {
+            const count = animalCount[animal];
+            tableHTML += `<tr><td>${animal}</td><td>${count}</td></tr>`;
+        });
+        tableHTML += '</tbody></table>'; // Close table
+
+        const tableSection = document.getElementById('table');
+        tableSection.innerHTML = tableHTML;
+        console.log(tableHTML);
+    }
+}
+
 const addCards = (items) => {
     items.forEach(item => {
         let itemToAppend = '<div class="col s4 center-align">'+
@@ -51,7 +91,7 @@ function removeCard(cardId) {
         url: `/api/animal/${cardId}`,
         type: 'DELETE',
         success: (result) => {
-            if (result.statusCode === 200) {
+            if (result.statusCode === 204) {
                 // Remove the entire card from the DOM
                 $(`.remove-card[data-card-id="${cardId}"]`).closest('.col').remove();
             } else {
@@ -64,7 +104,9 @@ function removeCard(cardId) {
 function getAllAnimals(){
     $.get('/api/animals', (response)=>{
         // response's data is in array format, so we can use it
-        if (response.statusCode === 200) {
+        if (response.statusCode === 201) {
+            const animalTypeArray = response.data.map(animal => animal.subTitle);
+            countValidAnimals(animalTypeArray);
             addCards(response.data);
         }
     });
