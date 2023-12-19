@@ -44,3 +44,5 @@ http.listen(port, () =>
 {
     console.log('Express Server Listening On Port: '+port);
 });
+
+module.exports = app;
