@@ -121,7 +121,7 @@ function removeCard(cardId) {
 function getAllAnimals(){
     $.get('/api/animals', (response)=>{
         // response's data is in array format, so we can use it
-        if (response.statusCode === 201) {
+        if (response.statusCode === 200) {
             const animalTypeArray = response.data.map(animal => animal.subTitle);
             const animalCount = countValidAnimals(animalTypeArray);
             populateTable(animalCount,"");

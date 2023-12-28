@@ -120,7 +120,7 @@ describe("ZOO TEST SUITE \n ----------------", function() {
         it("Server successfully processed client request (200)", function(done) {
             request(url, function(error, response, body) {
                 expect(response.statusCode).to.equal(200);
-                done()
+                done();
             });
         });
         // Check Status Output On Non-Existent Route
