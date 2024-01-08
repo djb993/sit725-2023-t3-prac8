@@ -28,16 +28,23 @@ app.use(express.urlencoded({extended: false})); //extended refers to parsing beh
 //The code defined in router will apply to any requests whose path begins /api/animal (E.g. /api/animal/details)
 app.use('/api',router);
 
-// << DISPLAY SOCKET ID >>
+// << SOCKETS >>
+// Listen For Client Connection
 io.on( 'connection', (socket) => // event listener triggered when a new connection is established with server
 {
-    console.log('Client: '+socket.id+ 'connected to server');
+    console.log('Client '+socket.id+ ': connected to server');
+    // Listen for 'message' event from client
+    socket.on('message', (msg) => {
+        console.log(`Message from client ${socket.id}: ${msg}`);
+        socket.emit('reply', 'Server Recieved Message.');
+    });
+    // Listen For Client Disconnect
     socket.on('disconnect', () => // event listener triggered when disconneted with server
     {
-        console.log('Client: '+socket.id+ 'disconnected from server');
+        console.log('Client '+socket.id+ ': disconnected from server');
     });
-
 });
+// << END SOCKETS >>
 
 // << LISTEN FOR REQUESTS >>
 http.listen(port, () => 
