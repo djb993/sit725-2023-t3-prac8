@@ -1,11 +1,11 @@
 {
-    "name": "sit725-2023-t3-prac5",
+    "name": "sit725-2023-t3-prac8",
     "version": "1.0.0",
-    "description": "sit725 week 5 prac",
+    "description": "sit725 week 8 prac",
     "main": "server.js",
     "scripts": {
         "test": "jest",
-        "start": "node startServerWithMongo.js"
+        "start": "node server.js"
     },
     "keywords": [
         "Nodejs",
@@ -17,14 +17,14 @@
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/djb993/sit725-2023-t3-prac4.git"
+        "url": "git+https://github.com/djb993/sit725-2023-t3-prac8.git"
     },
     "author": "Daniel Blair",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/djb993/sit725-2023-t3-prac4/issues"
+        "url": "https://github.com/djb993/sit725-2023-t3-prac8/issues"
     },
-    "homepage": "https://github.com/djb993/sit725-2023-t3-prac4#readme",
+    "homepage": "https://github.com/djb993/sit725-2023-t3-prac8#readme",
     "dependencies": {
         "express": "^4.18.2",
         "expresss": "^0.0.0",

@@ -1,5 +1,3 @@
-let hasReloaded = false;
-
 function countValidAnimals(arr) {
     const validAnimals = [ "elephant" , "giraffe" , "lion" , "monkey" , "kangaroo" , "dog" ];
     const animalCount = {};
@@ -54,7 +52,7 @@ const addCards = (items) => {
             if (validAnimals.includes(lowerCaseAnimal)) {
                 let itemToAppend = document.createElement('div');
                 itemToAppend.innerHTML = '<div class="col s4 center-align">'+
-                        '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="'+item.path+'">'+
+                        '<div class="card medium"><div class="card-image waves-effect waves-block waves-light"><img class="activator" src="images/'+item.path+'">'+
                         '</div><div class="card-content">'+
                         `<span class="card-title activator grey-text text-darken-4">${item.title}<i class="material-icons right"></i></span><p><a href="#"></a></p></div>`+
                         '<div class="card-reveal">'+
@@ -97,6 +95,7 @@ function postAnimal(animal){
         success: (result)=>{
             if (result.statusCode === 201) {
                 alert('animal post successful');
+                location.reload();
             }
         }
     });
@@ -111,6 +110,7 @@ function removeCard(cardId) {
             if (result.statusCode === 204) {
                 // Remove the entire card from the DOM
                 $(`.remove-card[data-card-id="${cardId}"]`).closest('.col').remove();
+                location.reload();
             } else {
                 console.error('Error deleting card:', result.message);
             }

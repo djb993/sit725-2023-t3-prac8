@@ -2,8 +2,15 @@
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb'); //MongoClient enables database & collection interation, ServerApiVersion represesnts MongoDB version as constant.
 
 //Assisgn link to connect to MongoDB server -> mongodb-scheme : IPaddress : Port
-const uri = "mongodb://127.0.0.1:27017/zooDatabase";
 // const uri = "mongodb://localhost:27017";
+// const uri = "mongodb://127.0.0.1:27017/zooDatabase";
+
+// Use the service name as the hostname
+const host = process.env.MONGO_HOST || 'mongodb';
+// Update the URI to use the host variable
+const uri = `mongodb://${host}:27017/zooDatabase`;
+
+
 
 //Create instance of MongoClient with specified URI and other settings
 const client = new MongoClient(uri, {

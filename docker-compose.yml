@@ -1,0 +1,16 @@
+version: '3'
+services: 
+  zoo-db: 
+    image: mongo
+    container_name: zoo-db
+  zoo-webapp:
+    image: djb993/zoo-webapp-image:1.1
+    container_name: zoo-webapp
+    environment:
+      - MONGO_HOST=zoo-db
+    ports: 
+      - 8080:3000
+    
+
+
+
